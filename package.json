@@ -1,0 +1,32 @@
+{
+	"name": "proto",
+	"description":"Javascript development web app for quick prototyping",
+	"author": "Sami Pussinen",
+	"version": "0.0.0",
+	"scripts": {
+		"test": "tape test/*.js"
+	},
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SamiPussinen/proto"
+	},
+	"bugs": {
+		"url": "https://github.com/SamiPussinen/proto/issues"
+	},
+	"dependencies": {},
+	"devDependencies": {},
+	"jshintConfig": {
+		"asi": false,
+		"browser": true,
+		"curly": false,
+		"expr": true,
+		"indent": 4,
+		"loopfunc": true,
+		"node": true,
+		"trailing": true,
+		"undef": true,
+		"white": true
+	},
+	"license":"MIT"
+}
