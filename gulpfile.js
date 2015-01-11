@@ -1,16 +1,30 @@
-/*
-  gulpfile.js
-  ===========
-  Rather than manage one giant configuration file responsible
-  for creating multiple tasks, each task has been broken out into
-  its own file in gulp/tasks. Any files in that directory get
-  automatically required below.
-  To add a new task, simply add a new task file that directory.
-  gulp/tasks/default.js specifies the default set of tasks to run
-  when you run `gulp`.
-*/
+var gulp = require('gulp');
+var browserify = require('gulp-browserify');
+var concat = require('gulp-concat');
+var jade = require('gulp-jade');
+ 
+gulp.task('client', function () {
+  return gulp.src('./client/js/index.coffee', { read: false })
+             .pipe(browserify({ transform: ['coffeeify'], extensions: ['.coffee'] }))
+             .pipe(concat('index.js'))
+             .pipe(gulp.dest('./public'));
+});
 
-var requireDir = require('require-dir');
+gulp.task('templates', function() {
+  var YOUR_LOCALS = {};
 
-// Require all tasks in gulp/tasks, including subfolders
-requireDir('./gulp/tasks', { recurse: true });
+  gulp.src('./src/templates/*.jade')
+    .pipe(jade({
+      locals: YOUR_LOCALS
+    }))
+    .pipe(gulp.dest('./public'));
+});
+
+gulp.task('server', function () {
+  return gulp.src('./server/js/server.coffee', { read: false })
+             .pipe(browserify({ transform: ['coffeeify'], extensions: ['.coffee'] }))
+             .pipe(concat('index.js'))
+             .pipe(gulp.dest('.'));
+});
+ 
+gulp.task('default', ['client', 'templates', 'server']);
