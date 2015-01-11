@@ -1,2 +1,41 @@
-h1 Hello, World!
-p Cool, eh?
+doctype html
+html(lang="en")
+	head
+		title {proto}
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+
+		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css")
+
+		script(src="https://code.jquery.com/jquery-2.1.3.min.js")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js")
+
+		script(src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js")
+	body
+		.navbar.navbar-inverse(role='navigation')
+			.container
+			.navbar-header
+				button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.navbar-brand(href='#')
+					b {p}
+			.collapse.navbar-collapse
+				ul(class="nav navbar-nav")
+					li
+						.checkbox.navbar-btn
+							label(class="navbar-link", for="update")
+								input(type="checkbox", id="update", value="code" checked)
+								p Run code on modify &nbsp
+					li
+						.checkbox.navbar-btn
+							label(class="navbar-link", for="code")
+								input(type="checkbox", id="code", value="code" checked)
+								p Show code &nbsp
+					li
+						a(href="#") Share
+			//	/.nav-collapse
+		.container
+			h1 Bootstrap template
