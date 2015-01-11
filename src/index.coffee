@@ -1,10 +1,6 @@
-ace = require('brace')
-require('brace/mode/javascript')
-require('brace/theme/monokai')
-Awesome = require('./coffee/editor.coffee')
+editor = require('./coffee/editor.coffee')
+preview = require('./coffee/preview.coffee')
 
-editor = ace.edit('editor')
-editor.getSession().setMode('ace/mode/javascript')
-editor.setTheme('ace/theme/monokai')
-
-Awesome.init()
+editor.init()
+preview.init()
+preview.animate()

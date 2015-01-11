@@ -1,48 +1,47 @@
 {
-  "name": "proto",
-  "description": "Javascript development web app for quick prototyping",
-  "author": "Sami Pussinen",
-  "version": "0.0.0",
-  "scripts": {
-    "test": "tape test/*.js",
-    "start": "node dist/index.js"
-  },
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SamiPussinen/proto"
-  },
-  "bugs": {
-    "url": "https://github.com/SamiPussinen/proto/issues"
-  },
-  "dependencies": {
-    "brace": "^0.4.0",
-    "express": "^4.10.7"
-  },
-  "devDependencies": {
-    "browserify": "^8.1.0",
-    "coffee-script": "^1.8.0",
-    "coffeeify": "^1.0.0",
-    "gulp": "^3.8.10",
-    "gulp-coffee": "^2.2.0",
-    "gulp-concat": "^2.4.3",
-    "gulp-jade": "^0.10.0",
-    "gulp-uglify": "^1.0.2",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.0.0",
-    "vinyl-transform": "^1.0.0"
-  },
-  "jshintConfig": {
-    "asi": false,
-    "browser": true,
-    "curly": false,
-    "expr": true,
-    "indent": 4,
-    "loopfunc": true,
-    "node": true,
-    "trailing": true,
-    "undef": true,
-    "white": true
-  },
-  "license": "MIT"
+	"name": "proto",
+	"description": "Javascript development web app for quick prototyping",
+	"author": "Sami Pussinen",
+	"version": "0.0.0",
+	"scripts": {
+	"test": "tape test/*.js",
+	"start": "node dist/index.js"
+	},
+	"main": "server.js",
+	"repository": {
+	"type": "git",
+	"url": "https://github.com/SamiPussinen/proto"
+	},
+	"bugs": {
+	"url": "https://github.com/SamiPussinen/proto/issues"
+	},
+	"dependencies": {
+	"express": "^4.10.7"
+	},
+	"devDependencies": {
+	"browserify": "^8.1.0",
+	"coffee-script": "^1.8.0",
+	"coffeeify": "^1.0.0",
+	"gulp": "^3.8.10",
+	"gulp-coffee": "^2.2.0",
+	"gulp-concat": "^2.4.3",
+	"gulp-jade": "^0.10.0",
+	"gulp-uglify": "^1.0.2",
+	"vinyl-buffer": "^1.0.0",
+	"vinyl-source-stream": "^1.0.0",
+	"vinyl-transform": "^1.0.0"
+	},
+	"jshintConfig": {
+	"asi": false,
+	"browser": true,
+	"curly": false,
+	"expr": true,
+	"indent": 4,
+	"loopfunc": true,
+	"node": true,
+	"trailing": true,
+	"undef": true,
+	"white": true
+	},
+	"license": "MIT"
 }

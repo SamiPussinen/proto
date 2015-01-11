@@ -1,10 +1,10 @@
-ace = require('brace')
-editor = ace.edit('editor')
+ace = require('./brace')
+require('./brace/mode/javascript')
+require('./brace/theme/proto')
 
-Awesome =
-	init : ->
-		editor.getSession().setValue('Awesome')
+module.exports =
+	init: ->
+		editor = ace.edit('editor')
+		editor.getSession().setMode('ace/mode/javascript')
+		editor.setTheme('ace/theme/proto')
 		editor.setShowPrintMargin(false)
-
-
-module.exports = Awesome
