@@ -1,0 +1,6 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/home/beta/projects/proto/src/lib/ace/mode-haml.js",
+        "/home/beta/projects/proto/build/lib/ace/mode-sh.js"
+    ]
+}

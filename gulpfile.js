@@ -1,30 +1,37 @@
 var gulp = require('gulp');
-var browserify = require('gulp-browserify');
-var concat = require('gulp-concat');
+var gutil = require('gulp-util');
+var browserify = require('browserify');
+var transform = require('vinyl-transform');
+var uglify = require('gulp-uglify');
 var jade = require('gulp-jade');
 var coffee = require('gulp-coffee');
- 
-gulp.task('client', function () {
-  return gulp.src('./client/js/index.coffee', { read: false })
-             .pipe(browserify({ transform: ['coffeeify'], extensions: ['.coffee'] }))
-             .pipe(concat('index.js'))
-             .pipe(gulp.dest('./public'));
+
+gulp.task('coffee', function() {
+	gulp.src('./src/**/*.coffee')
+	.pipe(coffee({bare: true}).on('error', gutil.log))
+	.pipe(gulp.dest('./build'));
 });
 
 gulp.task('templates', function() {
-  var YOUR_LOCALS = {};
+	var YOUR_LOCALS = {};
 
-  gulp.src('./client/templates/*.jade')
-    .pipe(jade({
-      locals: YOUR_LOCALS
-    }))
-    .pipe(gulp.dest('./public'));
+	gulp.src('./src/**/*.jade')
+	.pipe(jade({
+		locals: YOUR_LOCALS
+	}))
+	.pipe(gulp.dest('./build'));
 });
 
-gulp.task('server', function() {
-    gulp.src('server/js/*.coffee')
-        .pipe(coffee())
-        .pipe(gulp.dest('.'));
+gulp.task('browserify', function () {
+	var browserified = transform(function(filename) {
+		var b = browserify(filename);
+		return b.bundle();
+	});
+
+	return gulp.src(['./build/**/*.js'])
+		.pipe(browserified)
+		.pipe(uglify())
+		.pipe(gulp.dest('./dist'));
 });
- 
-gulp.task('default', ['client', 'templates', 'server']);
+
+gulp.task('default', ['coffee', 'templates', 'browserify']);
